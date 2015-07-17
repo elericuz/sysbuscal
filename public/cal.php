@@ -12,7 +12,6 @@
 
 	<script>dojoConfig = {async: true, parseOnLoad: true}</script>
 	<script src="/vendor/dojo/dojo/dojo.js"></script>
-	<script src="/js/calendar.js"></script>
 </head>
 <body class="claro">
 <div class="fixed">
@@ -71,5 +70,6 @@
         <div id="someId"></div>
     </div>
 </div>
+<script src="/js/calendar.js"></script>
 </body>
 </html>
