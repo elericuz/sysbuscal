@@ -1,6 +1,6 @@
 {
-    "name": "Fortalecer CMS",
-    "description": "Fortalecer CMS",
+    "name": "SysBus Calendar",
+    "description": "calendar for cruz verde",
     "license": "MIT",
     "keywords": [
         "framework",
@@ -11,7 +11,7 @@
         "composer",
         "activerecord"
     ],
-    "homepage": "http://cms.fortalecer.org",
+    "homepage": "http://ecocloud.cruzverdeperu.com",
     "authors": [
     	{
     		"name": "Eric Valera Miller",

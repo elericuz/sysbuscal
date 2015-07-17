@@ -16,7 +16,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 			}
 		}, "save-event-btn").startup();
 
-		myData = new dojo.data.ItemFileWriteStore({url:"/js/events.json", urlPreventCache:true});
+		myData = new dojo.data.ItemFileWriteStore({url:"/events/get", urlPreventCache:true});
 		myStore = new Memory({data: myData});
 		calStore = Observable(new dojo.store.DataStore({store: myData}));
 
