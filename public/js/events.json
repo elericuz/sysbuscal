@@ -1,0 +1,31 @@
+{"items": [
+	{
+		id : 0,
+		summary : "Event 1",
+		startTime : "2015-07-01T11:00",
+		endTime : "2015-07-01T14:00",
+		calendar : "Calendar1"
+	},
+	{
+		id : 1,
+		summary : "Evento 2",
+		startTime : "2015-07-02T11:30",
+		endTime : "2015-07-02T13:00",
+		calendar : "Calendar1"
+	},
+	{
+		id : 3,
+		summary : "Evento 3",
+		startTime : "2015-06-30T09:30",
+		endTime : "2015-06-30T13:00",
+		calendar : "Calendar1"
+	},
+	{
+		id : 2,
+		summary : "Evento 2",
+		startTime : "2015-06-29T11:30",
+		endTime : "2015-07-03T13:00",
+		allDay : true,
+		calendar : "Calendar2"
+	}
+]}
