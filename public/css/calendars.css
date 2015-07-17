@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+body {
+
+}
+
+table {
+	background: none !important;
+    border: inherit !important;
+    margin-bottom: auto !important;
+    table-layout: none !important;
+}
+
+table tr th, table tr td {
+	font-size: 12px;
+	padding: 0;
+}
+
+*, *::before, *::after {
+	box-sizing: none !important;
+}
+
+ul, ol, dl {
+	font-size: 12px;
+	line-height: inherit;
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(2n) {
+	background: inherit;
+}
+
+.dojoxCalendar {
+	font-size: 12px;
+	font-family: Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+}
+
+.claro .dojoxCalendarEvent.Calendar1 .bg {
+  background-color: #00AA00;
+}
+.claro .dojoxCalendarEvent.Calendar1.Hovered .bg {
+  background-color: #00FF00;
+}
+.claro .dojoxCalendarEvent.Calendar1.Selected .bg {
+  background-color: #004400;
+}
+.claro .dojoxCalendarEvent.Calendar2 .bg {
+  background-color: #0000AA;
+}
+.claro .dojoxCalendarEvent.Calendar2.Hovered .bg {
+  background-color: #0000FF;
+}
+.claro .dojoxCalendarEvent.Calendar2.Selected .bg {
+  background-color: #000044;
+}
+
+#borderContainer {
+    width: 100%;
+    height: 95%;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow:hidden;
+}
+
+.claro .dijitAccordionTitle {
+	font-size: 12px;
+}
+
+.claro .dijitAccordionContainer,
+.claro .dijitAccordionContainer label {
+	font-size: 12px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+	border-width: inherit;
+	font-size: inherit;
+	height: inherit;
+	margin: inherit;
+
+}
+
+<<<<<<< HEAD
+
+=======
+ul.title-area li.name {
+    background: #368a55 none repeat scroll 0 0 !important;
+}
+>>>>>>> B03
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
