@@ -63,6 +63,13 @@ class WebsiteTbEvents
      */
     private $eveiAllDay = '0';
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="evei_status", type="integer", nullable=true)
+     */
+    private $eveiStatus = '1';
+
 
 
     /**
@@ -211,5 +218,28 @@ class WebsiteTbEvents
     public function getEveiAllDay()
     {
         return $this->eveiAllDay;
+    }
+
+    /**
+     * Set eveiStatus
+     *
+     * @param integer $eveiStatus
+     * @return WebsiteTbEvents
+     */
+    public function setEveiStatus($eveiStatus)
+    {
+        $this->eveiStatus = $eveiStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get eveiStatus
+     *
+     * @return integer 
+     */
+    public function getEveiStatus()
+    {
+        return $this->eveiStatus;
     }
 }
