@@ -15,3 +15,4 @@ public/vendor
 .DS_Store
 logs/
 config/autoload/doctrine.global.php
+config/globals.php
