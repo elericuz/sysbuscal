@@ -20,8 +20,9 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		myStore = new Memory({data: myData});
 		calStore = Observable(new dojo.store.DataStore({store: myData}));
 
+		d = new Date();
 		calendar = new Calendar({
-			date : new Date(2015, 6, 1),
+			date : new Date(d.getFullYear(), d.getMonth(), d.getDate()),
 			cssClassFunc : function(item) {
 				return item.calendar;
 			},
@@ -39,27 +40,38 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 				timeSlotDuration : 15
 			},
 			style : "position:relative;width:100%;height:100%;"
-		}, "someId");
+		}, "mainCalendar");
 
 		calendar.on("itemClick", function(e) {
 			console.log("Item clicked", e.item.summary);
+			console.log("Item clicked", e.item.id);
 		});
 
 		calendar.on("itemEditEnd", function(e){
-			console.log("Item expandido ", e.item);
-			console.log("Item expandido ", e.item.summary);
-		});
+		    var xhrArgs = {
+	    		url: "/events/update-time",
+	    		content: {
+	    			id: e.item.id,
+	    			start: e.item.startTime,
+	    			end: e.item.endTime
+    		    },
+	    		handleAs: "json",
+	    		sync: true
+    	    }
 
-		calendar.onExpandRendererClick(function(e) {
-			console.log('acaaaa');
+		    dojo.xhrPost(xhrArgs).then(function(response){
+		    	console.log(response.status);
+		    });
 		});
 
 		//agrega un evento al calendario
 		var createItem = function(view, d, e) {
+
 			// create item by maintaining control key
 			if (!e.ctrlKey || e.shiftKey || e.altKey) {
 				return null;
 			}
+
 			// create a new event
 			var start, end;
 			var colView = calendar.columnView;
@@ -74,8 +86,27 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 				end = cal.add(start, "day", 1);
 			}
 
+			var newId = 0;
+
+		    var xhrArgs = {
+	    		url: "/events/create",
+	    		content: {
+    		      calendar: "Calendar1",
+    		      start: start,
+    		      end: end,
+    		      summary: "Nuevo Evento"
+    		    },
+	    		handleAs: "json",
+	    		sync: true
+    	    }
+
+		    dojo.xhrPost(xhrArgs).then(function(response){
+		    	newId = response.nextId;
+		    });
+
 			var item = {
-				summary : "Evento nuevo ",
+				id : newId,
+				summary : "Nuevo Evento",
 				startTime : start,
 				endTime : end,
 				calendar : "Calendar1",
