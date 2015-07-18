@@ -9,7 +9,9 @@ return array(
 	'module_layouts' => array(
 			'Event' => array(
 					'Index' => array(
-							'get'		=> 'layout/json',
+					    'get' => 'layout/json',
+					    'create' => 'layout/json',
+					    'updatetime' => 'layout/json'
 					),
 			)
 	),
