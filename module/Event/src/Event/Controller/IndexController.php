@@ -9,7 +9,7 @@ use Zend\Json\Json;
 
 class IndexController extends MainController
 {
-    public function getAction()
+    public function getallAction()
     {
         $events_obj = new Event($this->em, new WebsiteTbEvents());
         $json = array(
@@ -43,6 +43,30 @@ class IndexController extends MainController
         }
     }
 
+    public function updateAction()
+    {
+        $request = $this->getRequest();
+        if ($request->isPost())
+        {
+            $event = $request->getPost()->toArray();
+
+            $startDate = new \DateTime($event['startDate']);
+            $startHour = new \DateTime($event['startHour']);
+            $endDate = new \DateTime($event['endDate']);
+            $endHour = new \DateTime($event['endHour']);
+            $event['evevStartDate'] = $startDate->format("Y-m-d") . "T" . $startHour->format("H:i");
+            $event['evevEndDate'] = $endDate->format("Y-m-d") . "T" . $endHour->format("H:i");
+
+            $events_obj = new Event($this->em, new WebsiteTbEvents());
+            $json = array(
+                'status' => $events_obj->update($event)
+            );
+
+            echo Json::encode($json);
+            return false;
+        }
+    }
+
     public function updatetimeAction()
     {
         $request = $this->getRequest();
@@ -64,6 +88,18 @@ class IndexController extends MainController
             return false;
         }
 
+    }
+
+    public function getAction()
+    {
+        $eveiId = (int)$this->params()->fromRoute('event_id');
+
+        $events_obj = new Event($this->em, new WebsiteTbEvents());
+
+        $json = $events_obj->getEvent($eveiId);
+
+        echo Json::encode($json);
+        return false;
     }
 
     public function saveeventAction()
