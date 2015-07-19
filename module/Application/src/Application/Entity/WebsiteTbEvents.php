@@ -22,6 +22,13 @@ class WebsiteTbEvents
     private $eveiId;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="evei_parent_id", type="integer", nullable=false)
+     */
+    private $eveiParentId = '0';
+
+    /**
      * @var string
      *
      * @ORM\Column(name="evev_calendar", type="string", length=200, nullable=true)
@@ -80,6 +87,29 @@ class WebsiteTbEvents
     public function getEveiId()
     {
         return $this->eveiId;
+    }
+
+    /**
+     * Set eveiParentId
+     *
+     * @param integer $eveiParentId
+     * @return WebsiteTbEvents
+     */
+    public function setEveiParentId($eveiParentId)
+    {
+        $this->eveiParentId = $eveiParentId;
+
+        return $this;
+    }
+
+    /**
+     * Get eveiParentId
+     *
+     * @return integer 
+     */
+    public function getEveiParentId()
+    {
+        return $this->eveiParentId;
     }
 
     /**

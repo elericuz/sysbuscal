@@ -1,22 +1,40 @@
 require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		"dojo/_base/Deferred", "dojo/store/Observable", "dojo/store/Memory",
-		"dojo/date/stamp", "dojox/layout/ContentPane",
+		"dojo/date/stamp", "dojox/layout/ContentPane", "dijit/form/Form",
 		"dijit/layout/BorderContainer", "dijit/layout/AccordionContainer",
 		"dijit/form/ValidationTextBox", "dijit/form/DateTextBox",
 		"dijit/form/TimeTextBox", "dijit/form/Button", "dijit/registry", "dojo/date",
 		"dojo/data/ItemFileWriteStore", "dojo/store/DataStore" ], function(parser,
-		ready, dom, Calendar, Deferred, Observable, Memory, stamp, ContentPane,
+		ready, dom, Calendar, Deferred, Observable, Memory, stamp, ContentPane, Form,
 		BorderContainer, AccordionContainer, ValidationTextBox, DateTextBox,
 		TimeTextBox, Button, registry, date) {
 	ready(function() {
 		var saveEventBtn = new Button({
-			label : "Guardar",
+			label : "Actualizar Evento",
 			onClick : function(e) {
-				console.log("aca tamos");
+				if (dijit.byId('eventForm').isValid() && dijit.byId('eveiId').get('value')!=0){
+				    var xhrArgs = {
+			    		url: "/events/update",
+			    		handleAs: "json",
+			    		sync: true,
+			    		content: {
+			    			eveiId: dijit.byId('eveiId').get('value'),
+			    			evetSummary: dijit.byId('evetSummary').get('value'),
+			    			startDate: dijit.byId('startDate').get('value'),
+			    			startHour: dijit.byId('startHour').get('value'),
+			    			endDate: dijit.byId('endDate').get('value'),
+			    			endHour: dijit.byId('endHour').get('value'),
+				    		evevPlace: dijit.byId('evevPlace').get('value')
+			    		}
+		    	    }
+				    dojo.xhrPost(xhrArgs);
+				} else {
+					dijit.byId('eventForm').validate();
+				}
 			}
 		}, "save-event-btn").startup();
 
-		myData = new dojo.data.ItemFileWriteStore({url:"/events/get", urlPreventCache:true});
+		myData = new dojo.data.ItemFileWriteStore({url:"/events/get-all", urlPreventCache:true});
 		myStore = new Memory({data: myData});
 		calStore = Observable(new dojo.store.DataStore({store: myData}));
 
@@ -43,9 +61,29 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		}, "mainCalendar");
 
 		calendar.on("itemClick", function(e) {
-			console.log("Item clicked", e.item.summary);
-			console.log("Item clicked", e.item.id);
+		    getEvent(e.item.id);
 		});
+
+		function getEvent(eveiId){
+		    var xhrArgs = {
+	    		url: "/events/get/"+eveiId,
+	    		handleAs: "json",
+	    		sync: true,
+	    		load: function(response){
+	    			dijit.byId('eveiId').set('value', response.eveiId);
+	    			dijit.byId('evetSummary').set('value', response.evetSummary);
+	    			dijit.byId('startDate').set('value', response.startDate);
+	    			dijit.byId('startHour').set('value', response.startHour);
+	    			dijit.byId('endDate').set('value', response.endDate);
+	    			dijit.byId('endHour').set('value', response.endHour);
+	    			dijit.byId('evevPlace').set('value', response.evevPlace);
+
+	    			dijit.byId('eventForm').validate();
+	    		}
+    	    }
+
+		    dojo.xhrGet(xhrArgs);
+		}
 
 		calendar.on("itemEditEnd", function(e){
 		    var xhrArgs = {
@@ -60,8 +98,11 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
     	    }
 
 		    dojo.xhrPost(xhrArgs).then(function(response){
-		    	console.log(response.status);
+		    	//TODO
+		    	//console.log(response.status);
 		    });
+
+		    getEvent(e.item.id);
 		});
 
 		//agrega un evento al calendario
@@ -103,6 +144,8 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		    dojo.xhrPost(xhrArgs).then(function(response){
 		    	newId = response.nextId;
 		    });
+
+		    getEvent(newId);
 
 			var item = {
 				id : newId,

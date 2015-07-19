@@ -2,40 +2,40 @@
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 300px;">
         <div data-dojo-type="dijit/layout/AccordionContainer" style="height: 300px;">
             <div data-dojo-type="dojox/layout/ContentPane" title="Administración de eventos" selected="true">
-                <form action="">
-                    <input type="hidden" name="id" id="id" value="0">
+                <form data-dojo-type="dijit/form/Form" id="eventForm" action="">
+                    <input type="hidden" name="eveiId" id="eveiId" value="0" data-dojo-type="dijit/form/ValidationTextBox" />
                     <div>
                         <div>
-                            <label for="event_name">Nombre del Evento:</label>
-                            <input type="text" name="event_name" id="event_name" required="true"
+                            <label for="evetSummary">Nombre del Evento:</label>
+                            <input type="text" name="evetSummary" id="evetSummary" required="true"
                                 data-dojo-type="dijit/form/ValidationTextBox"
                                 data-dojo-props="placeHolder:'nombre del evento'" />
                             <div>
-                                <label for="start_date">Desde:</label>
+                                <label for="startHour">Desde:</label>
                             </div>
                         </div>
                         <div>
-                            <input type="text" name="start_date" id="start_date" required="true"
+                            <input type="text" name="startDate" id="startDate" required="true"
                                 data-dojo-type="dijit/form/DateTextBox" style="width: 97px;"
-                            data-dojo-props="placeHolder:'día', constraints:{formatLength:'short'}" />
-                            <input type="text" name="start_time" id="start_time" required="true"
+                            data-dojo-props="placeHolder:'día', constraints:{formatLength:'short', datePattern: 'dd-MMM-yyyy'}" />
+                            <input type="text" name="startHour" id="startHour" required="true"
                                 data-dojo-type="dijit/form/TimeTextBox" style="width: 97px;"
-                            data-dojo-props="placeHolder:'hora'" />
+                            data-dojo-props="placeHolder:'hora', constraints:{timePattern: 'HH:mm'}" />
                         </div>
                         <div>
-                            <label for="end_date">Hasta:</label>
+                            <label for="endDate">Hasta:</label>
                         </div>
                         <div>
-                            <input type="text" name="end_date" id="end_date" required="true"
+                            <input type="text" name="endDate" id="endDate" required="true"
                                 data-dojo-type="dijit/form/DateTextBox" style="width: 97px;"
-                            data-dojo-props="placeHolder:'día'" />
-                            <input type="text" name="end_time" id="end_time" required="true"
+                            data-dojo-props="placeHolder:'día', constraints:{datePattern: 'dd-MMM-yyyy'}" />
+                            <input type="text" name="endHour" id="endHour" required="true"
                                 data-dojo-type="dijit/form/TimeTextBox" style="width: 97px;"
-                            data-dojo-props="placeHolder:'hora'" />
+                            data-dojo-props="placeHolder:'hora', constraints:{timePattern: 'HH:mm'}" />
                         </div>
                         <div>
-                            <label for="event_location">Lugar:</label>
-                            <input type="text" name="event_location" id="event_location" required="true"
+                            <label for="evevPlace">Lugar:</label>
+                            <input type="text" name="evevPlace" id="evevPlace" required="true"
                                 data-dojo-type="dijit/form/ValidationTextBox"
                                 data-dojo-props="placeHolder:'¿dónde se realizará?'" />
                         </div>
@@ -51,3 +51,14 @@
         <div id="mainCalendar"></div>
     </div>
 </div>
+<?php
+$this->headLink()->appendStylesheet($this->basePath('vendor/dojo/dojox/calendar/themes/claro/Calendar.css'))
+                 ->appendStylesheet($this->basePath('vendor/dojo/dojox/calendar/themes/claro/MonthColumnView.css'))
+                 ->appendStylesheet($this->basePath('vendor/dojo/dojo/resources/dojo.css'))
+                 ->appendStylesheet($this->basePath('vendor/dojo/dijit/themes/dijit.css'))
+                 ->appendStylesheet($this->basePath('/vendor/dojo/dijit/themes/claro/claro.css'));
+$this->headScript()->prependFile($this->basepath('vendor/dojo/dojo/dojo.js'),
+                                 'text/javascript',
+                                 array('data-dojo-config'=>'isDebug: true, async: true, parseOnLoad: true'))
+                   ->appendFile($this->basePath('js/calendar.js'));
+?>

@@ -9,9 +9,11 @@ return array(
 	'module_layouts' => array(
 			'Event' => array(
 					'Index' => array(
-					    'get' => 'layout/json',
+					    'getall' => 'layout/json',
 					    'create' => 'layout/json',
-					    'updatetime' => 'layout/json'
+					    'updatetime' => 'layout/json',
+					    'get' => 'layout/json',
+					    'update' => 'layout/json',
 					),
 			)
 	),
