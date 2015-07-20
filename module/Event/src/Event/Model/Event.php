@@ -111,6 +111,15 @@ class Event extends EntityRepository
         $this->em->persist($event_obj);
         $this->em->flush();
 
+        return $event;
+    }
+
+    public function delete($event)
+    {
+        $event_obj = $this->em->find(get_class($this->class), $event['eveiId']);
+        $this->em->remove($event_obj);
+        $this->em->flush();
+
         return true;
     }
 

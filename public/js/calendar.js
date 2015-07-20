@@ -9,22 +9,33 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		BorderContainer, AccordionContainer, ValidationTextBox, DateTextBox,
 		TimeTextBox, Button, registry, date) {
 	ready(function() {
+
 		var saveEventBtn = new Button({
 			label : "Actualizar Evento",
 			onClick : function(e) {
-				if (dijit.byId('eventForm').isValid() && dijit.byId('eveiId').get('value')!=0){
+				if (dijit.byId('eventForm').isValid()){
 				    var xhrArgs = {
 			    		url: "/events/update",
 			    		handleAs: "json",
 			    		sync: true,
 			    		content: {
-			    			eveiId: dijit.byId('eveiId').get('value'),
+			    			eveiId: itemEdit.item.id,
 			    			evetSummary: dijit.byId('evetSummary').get('value'),
 			    			startDate: dijit.byId('startDate').get('value'),
 			    			startHour: dijit.byId('startHour').get('value'),
 			    			endDate: dijit.byId('endDate').get('value'),
 			    			endHour: dijit.byId('endHour').get('value'),
 				    		evevPlace: dijit.byId('evevPlace').get('value')
+			    		},
+			    		load: function(response){
+			    			editedItem = itemEdit.item;
+			    			editedItem.summary = response.event.evetSummary;
+			    			editedItem.startTime = response.event.evevStartDate;
+			    			editedItem.endTime = response.event.evevEndDate;
+			    			editedItem.allDay = editedItem.allDay;
+			    			editedItem.calendar = 'Calendar1';
+							calendar.store.remove(itemEdit.item.id);
+						    calendar.store.put(editedItem);
 			    		}
 		    	    }
 				    dojo.xhrPost(xhrArgs);
@@ -33,6 +44,23 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 				}
 			}
 		}, "save-event-btn").startup();
+
+		var deleteEventBtn = new Button({
+			label : "Borrar",
+			onClick : function(e) {
+			    var xhrArgs = {
+		    		url: "/events/delete",
+		    		handleAs: "json",
+		    		sync: true,
+		    		content: {
+		    			eveiId: itemEdit.item.id,
+		    		}
+	    	    }
+			    dojo.xhrPost(xhrArgs);
+			    calendar.store.remove(itemEdit.item.id);
+			    dijit.byId('eventForm').reset();
+			}
+		}, "delete-event-btn").startup();
 
 		myData = new dojo.data.ItemFileWriteStore({url:"/events/get-all", urlPreventCache:true});
 		myStore = new Memory({data: myData});
@@ -60,8 +88,11 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 			style : "position:relative;width:100%;height:100%;"
 		}, "mainCalendar");
 
+		var itemEdit;
+
 		calendar.on("itemClick", function(e) {
-		    getEvent(e.item.id);
+			itemEdit = e;
+		    getEvent(itemEdit.item.id);
 		});
 
 		function getEvent(eveiId){
@@ -102,7 +133,8 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		    	//console.log(response.status);
 		    });
 
-		    getEvent(e.item.id);
+		    itemEdit = e;
+		    getEvent(itemEdit.item.id);
 		});
 
 		//agrega un evento al calendario

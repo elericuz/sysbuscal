@@ -55,6 +55,16 @@ return array(
                     ),
                 ),
             ),
+            'delete-event' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/events/delete',
+                    'defaults' => array(
+                        'controller' => 'Event\Controller\Index',
+                        'action' => 'delete',
+                    ),
+                ),
+            ),
         ),
     ),
 );
