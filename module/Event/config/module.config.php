@@ -14,6 +14,7 @@ return array(
 					    'updatetime' => 'layout/json',
 					    'get' => 'layout/json',
 					    'update' => 'layout/json',
+					    'delete' => 'layout/json',
 					),
 			)
 	),

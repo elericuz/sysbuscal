@@ -59,7 +59,8 @@ class IndexController extends MainController
 
             $events_obj = new Event($this->em, new WebsiteTbEvents());
             $json = array(
-                'status' => $events_obj->update($event)
+                'status' => true,
+                'event' => $events_obj->update($event)
             );
 
             echo Json::encode($json);
@@ -102,9 +103,21 @@ class IndexController extends MainController
         return false;
     }
 
-    public function saveeventAction()
+    public function deleteAction()
     {
-        $events_obj = new Event($this->em, new WebsiteTbEvents());
+        $request = $this->getRequest();
+        if ($request->isPost())
+        {
+            $event = $request->getPost()->toArray();
+
+            $events_obj = new Event($this->em, new WebsiteTbEvents());
+            $json = array(
+                'status' => $events_obj->delete($event)
+            );
+
+            echo Json::encode($json);
+            return false;
+        }
     }
 }
 
