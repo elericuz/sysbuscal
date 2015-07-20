@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `website_tb_events`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `website_tb_events` (
   `evei_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `evei_parent_id` int(11) NOT NULL DEFAULT '0',
   `evev_calendar` varchar(200) DEFAULT NULL,
   `evev_start_time` varchar(24) DEFAULT NULL,
   `evev_end_time` varchar(24) DEFAULT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE `website_tb_events` (
   `evei_all_day` int(1) NOT NULL DEFAULT '0',
   `evei_status` int(1) DEFAULT '1',
   PRIMARY KEY (`evei_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +42,6 @@ CREATE TABLE `website_tb_events` (
 
 LOCK TABLES `website_tb_events` WRITE;
 /*!40000 ALTER TABLE `website_tb_events` DISABLE KEYS */;
-INSERT INTO `website_tb_events` VALUES (1,'Calendar1','2015-07-01T11:00','2015-07-01T14:00','Evento 1',NULL,0,1),(2,'Calendar2','2015-07-02T11:30','2015-07-02T13:00','Evento 2',NULL,0,1),(3,'Calendar1','2015-06-30T09:30','2015-06-30T13:00','Evento 3',NULL,0,1),(4,'Calendar2','2015-06-30T00:00','2015-07-02T00:00','Evento 2',NULL,1,1),(5,'Calendar2','2015-06-28T10:15','2015-06-28T15:30','Evento 5','',0,1),(6,'Calendar1','2015-06-30T04:15','2015-06-30T06:30','Nuevo Evento','',0,1),(7,'Calendar1','2015-07-03T05:15','2015-07-03T06:15','Nuevo Evento','',0,1),(8,'Calendar1','2015-06-29T04:30','2015-06-29T05:15','Nuevo Evento','',0,1),(9,'Calendar1','2015-07-02T03:15','2015-07-02T04:15','Nuevo Evento','',0,1),(10,'Calendar1','2015-07-14T08:00','2015-07-14T09:45','Nuevo Evento','',0,1),(11,'Calendar1','2015-07-14T08:15','2015-07-14T09:15','Nuevo Evento','',0,1);
 /*!40000 ALTER TABLE `website_tb_events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -661,7 +661,7 @@ CREATE TABLE `website_tb_security_user` (
 
 LOCK TABLES `website_tb_security_user` WRITE;
 /*!40000 ALTER TABLE `website_tb_security_user` DISABLE KEYS */;
-INSERT INTO `website_tb_security_user` VALUES (1,1,'8a4e8bcd6cc8ae4d3682b517baeaff9f','e83d0f134f4dbe513c83b67212e48635','eric@elericuz.com',1,NULL,NULL,'',1,'2010-11-17 01:06:23','127.0.0.1'),(2,3,'e923d9f088d11e3a1cf8ada93768b669','e83d0f134f4dbe513c83b67212e48635','eric@pragmum.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:55','201.230.75.59');
+INSERT INTO `website_tb_security_user` VALUES (1,1,'56ced81a50052e74a2b4cc2c4202fdb5','fa717dd958f77703ad91c170bb57ccd8','admin@sysbus.com',1,NULL,NULL,'',1,'2010-11-17 01:06:23','127.0.0.1'),(2,3,'7bf287d85d71cc8ceaf377177b8128f7','b9c6c308f791b4ed1674f87a82032118','demo@sysbus.com',1,1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:55','201.230.75.59');
 /*!40000 ALTER TABLE `website_tb_security_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -733,4 +733,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-18  1:28:54
+-- Dump completed on 2015-07-20  0:37:27
