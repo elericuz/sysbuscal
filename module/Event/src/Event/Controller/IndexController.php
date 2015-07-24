@@ -27,6 +27,8 @@ class IndexController extends MainController
         if ($request->isPost())
         {
             $event = $request->getPost()->toArray();
+            $event['start'] = substr($event['start'], 0, 33);
+            $event['end'] = substr($event['end'], 0, 33);
 
             $startDate = new \DateTime($event['start']);
             $event['start'] = substr($startDate->format('c'), 0, -9);
@@ -49,6 +51,10 @@ class IndexController extends MainController
         if ($request->isPost())
         {
             $event = $request->getPost()->toArray();
+            $event['startDate'] = substr($event['startDate'], 0, 33);
+            $event['startHour'] = substr($event['startHour'], 0, 33);
+            $event['endDate'] = substr($event['endDate'], 0, 33);
+            $event['endHour'] = substr($event['endHour'], 0, 33);
 
             $startDate = new \DateTime($event['startDate']);
             $startHour = new \DateTime($event['startHour']);
@@ -74,6 +80,8 @@ class IndexController extends MainController
         if ($request->isPost())
         {
             $event = $request->getPost()->toArray();
+            $event['start'] = substr($event['start'], 0, 33);
+            $event['end'] = substr($event['end'], 0, 33);
 
             $startDate = new \DateTime($event['start']);
             $event['start'] = substr($startDate->format('c'), 0, -9);
