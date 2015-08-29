@@ -1,0 +1,65 @@
+<div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 250px;">
+        <div data-dojo-type="dijit/layout/AccordionContainer" style="height: 300px;">
+            <div data-dojo-type="dojox/layout/ContentPane" title="Administración de eventos" selected="true">
+                <form data-dojo-type="dijit/form/Form" id="eventForm" action="">
+                    <input type="hidden" name="eveiId" id="eveiId" value="0" data-dojo-type="dijit/form/ValidationTextBox" />
+                    <div>
+                        <div>
+                            <label for="evetSummary">Nombre del Evento:</label>
+                            <input type="text" name="evetSummary" id="evetSummary" required="true"
+                                data-dojo-type="dijit/form/ValidationTextBox"
+                                data-dojo-props="placeHolder:'nombre del evento'" />
+                            <div>
+                                <label for="startHour">Desde:</label>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" name="startDate" id="startDate" required="true"
+                                data-dojo-type="dijit/form/DateTextBox" style="width: 97px;"
+                            data-dojo-props="placeHolder:'día', constraints:{formatLength:'short', datePattern: 'dd-MMM-yyyy'}" />
+                            <input type="text" name="startHour" id="startHour" required="true"
+                                data-dojo-type="dijit/form/TimeTextBox" style="width: 97px;"
+                            data-dojo-props="placeHolder:'hora', constraints:{timePattern: 'HH:mm'}" />
+                        </div>
+                        <div>
+                            <label for="endDate">Hasta:</label>
+                        </div>
+                        <div>
+                            <input type="text" name="endDate" id="endDate" required="true"
+                                data-dojo-type="dijit/form/DateTextBox" style="width: 97px;"
+                            data-dojo-props="placeHolder:'día', constraints:{datePattern: 'dd-MMM-yyyy'}" />
+                            <input type="text" name="endHour" id="endHour" required="true"
+                                data-dojo-type="dijit/form/TimeTextBox" style="width: 97px;"
+                            data-dojo-props="placeHolder:'hora', constraints:{timePattern: 'HH:mm'}" />
+                        </div>
+                        <div>
+                            <label for="evevPlace">Lugar:</label>
+                            <input type="text" name="evevPlace" id="evevPlace" required="true"
+                                data-dojo-type="dijit/form/ValidationTextBox"
+                                data-dojo-props="placeHolder:'¿dónde se realizará?'" />
+                        </div>
+                        <div>
+                            <button id="save-event-btn" type="button"></button>
+                            <button id="delete-event-btn" type="button"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'">
+        <div id="mainCalendar"></div>
+    </div>
+</div>
+<?php
+$this->headLink()->appendStylesheet($this->basePath('vendor/dojo/dojox/calendar/themes/claro/Calendar.css'))
+                 ->appendStylesheet($this->basePath('vendor/dojo/dojox/calendar/themes/claro/MonthColumnView.css'))
+                 ->appendStylesheet($this->basePath('vendor/dojo/dojo/resources/dojo.css'))
+                 ->appendStylesheet($this->basePath('vendor/dojo/dijit/themes/dijit.css'))
+                 ->appendStylesheet($this->basePath('/vendor/dojo/dijit/themes/claro/claro.css'));
+$this->headScript()->prependFile($this->basepath('vendor/dojo/dojo/dojo.js'),
+                                 'text/javascript',
+                                 array('data-dojo-config'=>'isDebug: true, async: true, parseOnLoad: true'))
+                   ->appendFile($this->basePath('js/calendar.js'));
+?>

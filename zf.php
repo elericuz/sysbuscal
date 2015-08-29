@@ -1,1 +1,1 @@
-vendor/ZFTool/zf.php
+vendor/zendframework/zftool/zf.php

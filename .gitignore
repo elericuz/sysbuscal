@@ -10,10 +10,9 @@ composer.lock
 vendor/bin
 components/
 extras/
-public/static/dojo
-public/static/foundation
 vendor/
+public/vendor
 .DS_Store
-application/data/repository/
 logs/
-application/config/autoload/doctrine.global.php
+config/autoload/doctrine.global.php
+config/globals.php

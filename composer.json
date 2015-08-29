@@ -1,6 +1,6 @@
 {
-    "name": "Pilon Cruz Verde",
-    "description": "Sistema de archivos para Cruz Verde",
+    "name": "SysBus Calendar",
+    "description": "calendar for cruz verde",
     "license": "MIT",
     "keywords": [
         "framework",
@@ -11,27 +11,17 @@
         "composer",
         "activerecord"
     ],
-    "homepage": "http://cv.sysbus.pragmum.com",
+    "homepage": "http://ecocloud.cruzverdeperu.com",
     "authors": [
     	{
     		"name": "Eric Valera Miller",
     		"email": "eric@elericuz.com"
     	}
     ],
-    "repositories": [
-    	{
-    		"type": "composer",
-    		"url": "https://raw.github.com/superdweebie/dojo/master"
-    	}
-    ],
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*",
         "components/foundation": "5.5.1",
-        "dojo/dojo" : "1.8.3",
-        "dojo/dijit" : "1.8.3",
-        "dojo/dojox" : "dev-master",
-        "dojo/util" : "1.8.3",
         "doctrine/doctrine-orm-module": "0.7.*"
     },
     "scripts": {
@@ -44,11 +34,7 @@
                 "cp -R vendor/components/foundation public/vendor/foundation",
                 "cp -R vendor/components/jquery public/vendor/foundation",
                 "cp -R vendor/components/modernizr public/vendor/foundation",
-                "cp -R vendor/components/normalize.css public/vendor/foundation",
-                "cp -R extras/library/dijit public/vendor/dojo",
-                "cp -R extras/library/dojo public/vendor/dojo",
-                "cp -R extras/library/dojox public/vendor/dojo",
-                "cp -R extras/library/util public/vendor/dojo"
+                "cp -R vendor/components/normalize.css public/vendor/foundation"
             ]
     }
 }
