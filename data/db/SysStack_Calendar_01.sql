@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `website_tb_calendar`
+--
+
+DROP TABLE IF EXISTS `website_tb_calendar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_tb_calendar` (
+  `cali_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `calv_name` varchar(50) NOT NULL DEFAULT '',
+  `cali_status` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`cali_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_tb_calendar`
+--
+
+LOCK TABLES `website_tb_calendar` WRITE;
+/*!40000 ALTER TABLE `website_tb_calendar` DISABLE KEYS */;
+INSERT INTO `website_tb_calendar` VALUES (1,'grupo 1 ',1),(2,'grupo 2',1),(3,'grupo 3',1),(4,'grupo 4',1);
+/*!40000 ALTER TABLE `website_tb_calendar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `website_tb_events`
 --
 
@@ -33,7 +58,7 @@ CREATE TABLE `website_tb_events` (
   `evei_all_day` int(1) NOT NULL DEFAULT '0',
   `evei_status` int(1) DEFAULT '1',
   PRIMARY KEY (`evei_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +67,7 @@ CREATE TABLE `website_tb_events` (
 
 LOCK TABLES `website_tb_events` WRITE;
 /*!40000 ALTER TABLE `website_tb_events` DISABLE KEYS */;
+INSERT INTO `website_tb_events` VALUES (1,0,'Calendar1','2015-08-24T00:15','2015-08-24T02:15','Nuevo Evento','casa',0,1);
 /*!40000 ALTER TABLE `website_tb_events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,6 +141,60 @@ LOCK TABLES `website_tb_news` WRITE;
 /*!40000 ALTER TABLE `website_tb_news` DISABLE KEYS */;
 INSERT INTO `website_tb_news` VALUES (1,'Suspendisse congue venenatis arcu tincidunt condimentum','Sed in auctor sapien. Nullam auctor massa pharetra leo dapibus tincidunt eget eget dolor. Suspendisse pharetra tristique vestibulum.','<p>\r\n	Suspendisse turpis elit, vehicula feugiat vehicula sit amet, mattis id dolor. Nulla scelerisque lobortis metus, eget gravida neque dapibus non. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In nec tortor quis dui porta ultricies. Etiam sed ligula nibh. Donec sit amet magna id eros faucibus commodo. <strong>Phasellus </strong>cursus lectus vitae orci ultricies commodo. <strong>Praesent </strong>nibh nisl, aliquet sit amet sagittis at, elementum vitae lorem. Nullam vel est eu orci scelerisque tristique non rutrum arcu. Suspendisse vitae ultrices dui. Maecenas sit amet mauris a quam aliquet molestie in in augue. Phasellus quis orci in sem ullamcorper tincidunt eu sit amet turpis. Morbi porta semper nulla, et pellentesque ante consequat sit amet. Nulla quis nulla risus. Fusce semper fringilla mi, eu pellentesque lorem varius at. Nulla vehicula sem a magna venenatis sed iaculis enim vehicula. Quisque augue dui, aliquam sed euismod id, hendrerit ac tortor. Quisque ligula neque, posuere vel euismod ut, ultrices a sem.</p>\r\n<p>\r\n	Fusce volutpat mattis velit eget elementum. <em>Mauris suscipit commodo sapien</em>, sit amet rutrum risus tempus eget. In at erat a lectus vehicula ultrices. Phasellus dui libero, aliquet ac rutrum quis, porta mattis sem. Sed vel odio vel lacus tempus sodales a at dolor. Morbi aliquam accumsan scelerisque. Vestibulum ut nunc id quam sodales consequat sed id orci. Donec dignissim bibendum cursus. Donec aliquam lobortis vehicula. Aliquam lacinia nisl in justo elementum at luctus felis iaculis. Praesent laoreet aliquet justo, eu aliquam libero suscipit vitae. Nam pellentesque tincidunt sem in convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac diam ante, a viverra metus.</p>\r\n<p>\r\n	Ut sem risus, ornare ut viverra et, interdum at elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque quis leo suscipit mi lacinia placerat. Aenean eget dolor a purus convallis ornare. Sed rutrum, tellus vestibulum varius dictum, nunc ligula facilisis sem, ac hendrerit nulla ipsum nec dui. Fusce mattis tempus augue non pretium. Fusce commodo urna id massa accumsan tristique. Aenean sollicitudin aliquam lacus sit amet fermentum. Donec ac metus sed felis mattis sollicitudin. Sed pretium auctor vulputate. Nulla pretium, nisi id mollis pellentesque, nibh elit sodales tortor, ut condimentum ipsum tortor in orci. Praesent a mauris libero, non iaculis nisl. Integer eget massa et dui venenatis viverra a in eros. Fusce laoreet purus ac eros accumsan tincidunt. Etiam elementum risus quis tellus aliquet pellentesque.</p>\r\n<p>\r\n	Praesent a lacus a nisl dignissim mollis. Mauris a venenatis risus. Duis odio orci, fermentum in accumsan ac, vulputate eget dui. Duis sodales mi id elit condimentum accumsan. Donec ultricies tempor ante nec aliquam. Morbi ut odio ante, iaculis pulvinar erat. Donec euismod lobortis diam. Nullam sit amet ipsum nec quam interdum pellentesque sit amet a enim. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce faucibus adipiscing interdum. Curabitur condimentum vestibulum lorem, in commodo ligula faucibus ut. Donec volutpat porttitor nibh in gravida. Fusce pellentesque imperdiet nunc, id lobortis nisl vestibulum suscipit. Praesent sit amet magna sed enim posuere dignissim. Cras mauris odio, accumsan non aliquam a, aliquam sit amet arcu. Suspendisse potenti. In eu magna in sem pharetra congue in sed metus. In volutpat nibh et nisl rhoncus eget consequat tortor iaculis. Etiam hendrerit tortor nec arcu luctus convallis.</p>\r\n','noticias/suspendisse-congue-venenatis-arcu-tincidunt-condimentum','foto-1.jpg','698c4b1181498ef26e16263d0657d770','image/jpeg','jpg','68.93kB',1,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Morbi iaculis dui','Aliquam a risus eros, in eleifend ipsum. Praesent ut tincidunt diam.','<div id=\\\"\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;lipsum\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\\">\r\n	<p>\r\n		Pellentesque lobortis venenatis nibh, tempus ullamcorper enim auctor ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tellus magna, rutrum eget malesuada sit amet, rutrum eget felis. Phasellus porttitor metus sed massa cursus id condimentum leo dictum. Sed at ligula non erat facilisis pellentesque quis vitae quam. Quisque commodo, turpis eu bibendum aliquet, urna turpis volutpat lorem, id egestas dui ipsum id nulla. Morbi iaculis dui nec arcu bibendum sed molestie sapien vehicula. Nunc ornare nulla tempor dui sollicitudin ac fermentum nunc dignissim. Morbi condimentum elementum ipsum eu condimentum. Vestibulum sit amet dui quis arcu suscipit vulputate. Morbi imperdiet nunc at lectus dignissim pulvinar. Nam dolor massa, viverra at laoreet quis, vehicula sit amet nisi.</p>\r\n	<p>\r\n		&nbsp;</p>\r\n	<p>\r\n		In hac habitasse platea dictumst. Sed ac lectus risus, vel tincidunt enim. Praesent ultrices adipiscing cursus. Nunc lacinia mauris at sem semper rhoncus. Aliquam a risus eros, in eleifend ipsum. Praesent ut tincidunt diam. Fusce egestas orci eget mi ornare auctor. Morbi lacinia orci ac lorem fermentum eget imperdiet massa condimentum. Proin lobortis pulvinar lacus ac laoreet. Aliquam mauris libero, adipiscing at dignissim et, mattis nec enim. Praesent non velit nec quam imperdiet pulvinar ut at nibh. Quisque vulputate eros magna, eu ornare orci. Suspendisse vulputate neque sit amet est vestibulum vitae euismod arcu sagittis. Integer tincidunt nibh massa. Sed sagittis aliquet est, in consectetur est cursus vitae. Donec rutrum nulla augue, at accumsan ligula.</p>\r\n	<p>\r\n		&nbsp;</p>\r\n	<p>\r\n		Pellentesque mattis tellus dolor, nec adipiscing felis. Maecenas pharetra lorem vel nunc mattis auctor. Aenean rutrum elementum interdum. Fusce at lectus at tellus vestibulum semper. Donec vitae faucibus turpis. Nunc purus risus, condimentum et mattis non, vulputate at quam. Mauris egestas volutpat ligula, et pulvinar ipsum dictum et. Integer sollicitudin porta aliquam. Nulla rhoncus nisl quis neque tincidunt molestie dignissim erat sollicitudin. Fusce vitae augue dolor, eu dignissim erat. Nam quis magna neque.</p>\r\n	<p>\r\n		&nbsp;</p>\r\n	<p>\r\n		Sed lobortis mi facilisis augue placerat accumsan. Nullam libero augue, malesuada a consequat bibendum, commodo vel diam. Fusce dolor ligula, tempus eget faucibus et, venenatis non sapien. Cras ornare, orci eu euismod pretium, dolor tortor suscipit orci, lobortis tristique purus est tempor elit. Integer consectetur justo venenatis enim venenatis pulvinar in nec ante. Integer vitae ante vel odio vestibulum molestie eu vitae nulla. Suspendisse vel mauris in nisl porta scelerisque. Sed cursus aliquam enim, vel accumsan erat porttitor sed. Duis vel lacus tellus, ut adipiscing nisl. Cras at felis sapien, a porttitor felis. Mauris velit tellus, ornare sit amet fringilla ac, lacinia vitae est. Nulla facilisi. Donec faucibus, justo ut tempus auctor, nibh ante consectetur nulla, sed molestie ipsum odio sed ipsum. In hac habitasse platea dictumst.</p>\r\n	<p>\r\n		&nbsp;</p>\r\n	<p>\r\n		Maecenas laoreet bibendum accumsan. Curabitur a nunc eget sapien venenatis fermentum. Cras eu dui felis, sed mattis ligula. Suspendisse vulputate lorem sit amet turpis egestas lobortis. Donec bibendum dignissim augue in fermentum. Vivamus a nisi eu elit consectetur suscipit et eu lorem. Donec in viverra mauris. In vehicula sagittis felis, eget varius est rhoncus sit amet. Phasellus iaculis turpis eget tortor consequat non sagittis enim volutpat. In a turpis metus, eget ornare lacus. Aliquam sit amet luctus nisi. Sed et metus libero, ac eleifend lacus. Sed a arcu in orci imperdiet viverra ut pharetra nunc. Praesent mollis felis ac ante malesuada nec luctus turpis dapibus. Etiam a mi nec nunc euismod bibendum. Nunc sed quam commodo ante tincidunt aliquet. Fusce eleifend molestie erat sed lobortis.</p>\r\n</div>\r\n','noticias/morbi-iaculis-dui_1','foto-5.jpg','9ec4ba648f468e4cef99fe4fc2827422','image/jpeg','jpg','259.31kB',1,NULL,NULL,NULL,NULL,NULL,NULL),(3,'Duis vitae elit sapien','Curabitur congue vulputate justo ac euismod. Sed semper lobortis nisl vel adipiscing.','<div id=\\\"\\\\&quot;lipsum\\\\&quot;\\\">\r\n	<p>\r\n		Pellentesque congue lectus quis dolor feugiat a suscipit velit mattis. Vestibulum eget dapibus justo. Maecenas suscipit orci ac nisl commodo sed euismod nisl ultrices. Curabitur vel consectetur nisi. Donec bibendum lacinia mattis. Donec quis eros sit amet justo hendrerit elementum ut in sapien. Phasellus feugiat scelerisque risus, et sollicitudin libero convallis sed. Morbi sed convallis neque. Duis congue, dolor vel semper iaculis, felis sapien tempus ligula, ut sagittis turpis felis at tortor. Mauris id eros tortor, nec eleifend enim. Cras diam sem, molestie nec tempor non, rhoncus non arcu. Sed dignissim ornare sapien, id dictum justo molestie sollicitudin. Vivamus aliquam venenatis laoreet. Etiam at nisl ultricies neque sollicitudin iaculis. In at sagittis turpis. Suspendisse ultrices odio eget dui ornare consectetur. Aliquam erat volutpat. Nullam imperdiet, augue ac volutpat pellentesque, leo massa rutrum nunc, vel tincidunt sem purus a velit.</p>\r\n	<p>\r\n		Aliquam erat volutpat. Aliquam vehicula dolor id arcu sollicitudin accumsan. Quisque ac nisi erat, eget suscipit arcu. Nam cursus aliquam orci a mollis. Aliquam feugiat, neque vitae rhoncus aliquet, purus enim elementum orci, ac vulputate sem elit sed magna. Nunc in urna lectus, ac lobortis lorem. Pellentesque id gravida dui. Nunc porttitor mauris in magna auctor et elementum arcu ultrices. Curabitur sit amet ipsum purus, eget fringilla turpis. Curabitur congue vulputate justo ac euismod. Sed semper lobortis nisl vel adipiscing. Donec volutpat iaculis tellus a scelerisque. Nullam volutpat, lacus et aliquet pulvinar, libero purus viverra erat, id pellentesque eros tellus in metus. Suspendisse sed purus non magna porta varius. Fusce neque libero, pellentesque nec rhoncus et, faucibus nec diam. Nullam vehicula suscipit ligula non molestie.</p>\r\n	<p>\r\n		Quisque semper pulvinar adipiscing. Proin commodo sodales est, in iaculis mauris elementum sit amet. Duis tincidunt, libero ac suscipit rutrum, neque ante egestas dolor, sit amet consequat libero ligula nec urna. Aenean sit amet neque libero, et interdum justo. Nulla ut mi eros. Fusce nec tellus diam, a lacinia tortor. Duis vitae elit sapien, ut dignissim diam. Donec posuere elementum mattis. In convallis urna vel purus sodales et volutpat dolor lobortis. Ut volutpat vestibulum ante nec sodales. Vivamus id lectus ac risus elementum tristique a id lacus. Maecenas tempor, risus ultrices molestie rhoncus, justo erat pulvinar sem, in gravida sapien quam quis lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>\r\n	<p>\r\n		Donec et dui vitae sem blandit luctus. Sed sollicitudin tellus non tortor pharetra ut rhoncus mauris dignissim. Suspendisse potenti. Aliquam faucibus tincidunt lectus ac suscipit. Vivamus imperdiet mi in enim condimentum consequat. Praesent viverra, erat quis cursus dictum, turpis libero venenatis ante, id ultricies est purus lobortis libero. Sed convallis est nec velit commodo ac rhoncus tellus gravida. Donec consequat placerat nisl, sed scelerisque turpis cursus eget. Donec vitae arcu ac nulla fringilla egestas quis quis libero. Nulla in erat nisi. Quisque cursus, arcu et convallis imperdiet, sapien magna blandit ligula, nec rhoncus risus risus ut lacus. Phasellus eget nibh in libero mollis consectetur ut placerat mauris. Vivamus eu leo ac risus posuere viverra in non lorem. Nunc elit magna, vestibulum vitae tincidunt sit amet, pulvinar in ipsum. Etiam tempus lacinia lacinia. Etiam ante ligula, auctor malesuada placerat id, mattis eu metus.</p>\r\n	<p>\r\n		Nam malesuada imperdiet commodo. Donec aliquam diam nibh. Cras tempus enim sit amet arcu iaculis lacinia. Cras dolor nisi, semper nec suscipit tincidunt, cursus in quam. Praesent adipiscing dapibus ante, ut gravida nisi aliquam id. Duis ut massa ac odio placerat congue quis vitae dolor. Ut eleifend ligula id felis luctus vestibulum. Donec quis tellus justo, quis aliquet diam. Donec posuere velit eros, a blandit leo. Sed id felis ut sem fringilla gravida.</p>\r\n</div>\r\n','noticias/duis-vitae-elit-sapien_1','foto-3.jpg','2f9dd1672c635cfbc662e3c36e8236a1','image/jpeg','jpg','55.33kB',1,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `website_tb_news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `website_tb_person`
+--
+
+DROP TABLE IF EXISTS `website_tb_person`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_tb_person` (
+  `peri_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `perv_name` varchar(50) NOT NULL DEFAULT '',
+  `perv_lastname` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`peri_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_tb_person`
+--
+
+LOCK TABLES `website_tb_person` WRITE;
+/*!40000 ALTER TABLE `website_tb_person` DISABLE KEYS */;
+INSERT INTO `website_tb_person` VALUES (1,'juan','perez'),(2,'juana','perz'),(3,'jhon','doe'),(4,'jaen','doe');
+/*!40000 ALTER TABLE `website_tb_person` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `website_tb_person_calendar`
+--
+
+DROP TABLE IF EXISTS `website_tb_person_calendar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_tb_person_calendar` (
+  `peci_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `peri_id` int(11) unsigned NOT NULL,
+  `cali_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`peci_id`),
+  KEY `has_person` (`peri_id`),
+  KEY `has_calendar` (`cali_id`),
+  CONSTRAINT `has_calendar` FOREIGN KEY (`cali_id`) REFERENCES `website_tb_calendar` (`cali_id`),
+  CONSTRAINT `has_person` FOREIGN KEY (`peri_id`) REFERENCES `website_tb_person` (`peri_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_tb_person_calendar`
+--
+
+LOCK TABLES `website_tb_person_calendar` WRITE;
+/*!40000 ALTER TABLE `website_tb_person_calendar` DISABLE KEYS */;
+INSERT INTO `website_tb_person_calendar` VALUES (1,1,1),(2,1,2),(3,3,2),(4,4,1),(5,2,3),(6,2,4);
+/*!40000 ALTER TABLE `website_tb_person_calendar` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -692,7 +772,7 @@ CREATE TABLE `website_tb_security_user_description` (
 
 LOCK TABLES `website_tb_security_user_description` WRITE;
 /*!40000 ALTER TABLE `website_tb_security_user_description` DISABLE KEYS */;
-INSERT INTO `website_tb_security_user_description` VALUES (1,'Eric','Valera Miller',NULL,NULL,NULL,1,'2010-11-17 01:06:23','127.0.0.1'),(2,'Eric','Valera Miller',1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:56','201.230.75.59');
+INSERT INTO `website_tb_security_user_description` VALUES (1,'Admin','',NULL,NULL,NULL,1,'2010-11-17 01:06:23','127.0.0.1'),(2,'Tester','',1,'2010-11-16 06:30:54','127.0.0.1',1,'2011-03-04 02:26:56','201.230.75.59');
 /*!40000 ALTER TABLE `website_tb_security_user_description` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -733,4 +813,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-20  0:37:27
+-- Dump completed on 2015-09-06 20:35:18

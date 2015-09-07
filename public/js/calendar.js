@@ -25,7 +25,8 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 			    			startHour: dijit.byId('startHour').get('value'),
 			    			endDate: dijit.byId('endDate').get('value'),
 			    			endHour: dijit.byId('endHour').get('value'),
-				    		evevPlace: dijit.byId('evevPlace').get('value')
+				    		evevPlace: dijit.byId('evevPlace').get('value'),
+				    		caliId: dijit.byId('caliId').get('value')
 			    		},
 			    		load: function(response){
 			    			editedItem = itemEdit.item;
@@ -33,7 +34,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 			    			editedItem.startTime = response.event.evevStartDate;
 			    			editedItem.endTime = response.event.evevEndDate;
 			    			editedItem.allDay = editedItem.allDay;
-			    			editedItem.calendar = 'Calendar1';
+			    			editedItem.calendar = 'Calendar'+dijit.byId('caliId').get('value');
 							calendar.store.remove(itemEdit.item.id);
 						    calendar.store.put(editedItem);
 			    		}
@@ -108,7 +109,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 	    			dijit.byId('endDate').set('value', response.endDate);
 	    			dijit.byId('endHour').set('value', response.endHour);
 	    			dijit.byId('evevPlace').set('value', response.evevPlace);
-
+	    			dijit.byId('caliId').set('value', response.caliId);
 	    			dijit.byId('eventForm').validate();
 	    		}
     	    }
@@ -130,7 +131,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 
 		    dojo.xhrPost(xhrArgs).then(function(response){
 		    	//TODO
-		    	//console.log(response.status);
+		    	console.log(dijit.byId('caliId').get('value'));
 		    });
 
 		    itemEdit = e;
@@ -164,7 +165,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		    var xhrArgs = {
 	    		url: "/events/create",
 	    		content: {
-    		      calendar: "Calendar1",
+    		      calendar: dijit.byId('caliId').get('value'),
     		      start: start,
     		      end: end,
     		      summary: "Nuevo Evento"
@@ -184,7 +185,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 				summary : "Nuevo Evento",
 				startTime : start,
 				endTime : end,
-				calendar : "Calendar1",
+				calendar : dijit.byId('caliId').get('value'),
 				allDay : view.viewKind == "matrix"
 			};
 			return item;

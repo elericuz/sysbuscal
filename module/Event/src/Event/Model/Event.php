@@ -29,6 +29,7 @@ class Event extends EntityRepository
             $events[] = array(
                 'id' => $result['eveiId'],
                 'calendar' => $result['evevCalendar'],
+                'caliId' => $result['caliId'],
                 'startTime' => $result['evevStartTime'],
                 'endTime' => $result['evevEndTime'],
                 'summary' => $result['evetSummary'],
@@ -80,10 +81,11 @@ class Event extends EntityRepository
     public function saveEvent($event)
     {
         $event_obj = $this->class;
-        $event_obj->setEvevCalendar($event['calendar'])
+        $event_obj->setCaliId($event['calendar'])
                   ->setEvevStartTime($event['start'])
                   ->setEvevEndTime($event['end'])
-                  ->setEvetSummary($event['summary']);
+                  ->setEvetSummary($event['summary'])
+                  ->setEvevCalendar('Calendar'.$event['calendar']);
         $this->em->persist($event_obj);
         $this->em->flush();
 
@@ -107,7 +109,9 @@ class Event extends EntityRepository
         $event_obj->setEvetSummary($event['evetSummary'])
                   ->setEvevStartTime($event['evevStartDate'])
                   ->setEvevEndTime($event['evevEndDate'])
-                  ->setEvevPlace($event['evevPlace']);
+                  ->setEvevPlace($event['evevPlace'])
+                  ->setCaliId($event['caliId'])
+                  ->setEvevCalendar('Calendar'.$event['caliId']);
         $this->em->persist($event_obj);
         $this->em->flush();
 
