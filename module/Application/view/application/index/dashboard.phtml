@@ -40,6 +40,16 @@
                                 data-dojo-props="placeHolder:'¿dónde se realizará?'" />
                         </div>
                         <div>
+                            <label for="caliId">Grupo:</label>
+                            <select name="caliId" id="caliId" required="false"
+                                data-dojo-type="dijit/form/FilteringSelect"
+                                data-dojo-props="placeHolder:'Seleccione un grupo'">
+                                <?php foreach($this->calendars as $calendar) { ?>
+                                <option value="<?php echo $calendar->getCaliId(); ?>"><?php echo $calendar->getCalvName(); ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div>
                             <button id="save-event-btn" type="button"></button>
                             <button id="delete-event-btn" type="button"></button>
                         </div>

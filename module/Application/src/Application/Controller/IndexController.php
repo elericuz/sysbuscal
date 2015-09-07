@@ -27,6 +27,12 @@ class IndexController extends MainController
 
     public function dashboardAction()
     {
-        return new ViewModel();
+        $calendars = $this->em->getRepository('Application\Entity\WebsiteTbCalendar')->findBy(array('caliStatus'=>1));
+
+        $array = array(
+            'calendars' => $calendars
+        );
+
+        return new ViewModel($array);
     }
 }
