@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Grupo</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div class="large-3 columns text-right">
+                <b>Nombre</b>
+            </div>
+            <div class="large-9 columns">
+                <input type="text" name="calvName" value="<?php echo $this->group->getCalvName(); ?>">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <a href="<?php echo $this->url('edit-group') . "/" . $this->group->getCaliId(); ?>" class="button radius tiny">Editar</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <h1>Integrantes</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <table class="list" width="100%">
+                    <thead>
+                        <tr>
+                            <th width="5%">Nro.</th>
+                            <th width="85%">Nombre y Apellido</th>
+                            <th width="10%">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        foreach($this->persons as $person) {
+                        ?>
+                        <tr>
+                            <td><?php echo $i; $i++; ?></td>
+                            <td><?php echo $person->getPeri()->getPervName() . " " . $person->getPeri()->getPervLastname(); ?></td>
+                            <td>
+                                <a href="<?php echo $this->url('delete-person-group', array('group'=>$this->group->getCaliId(), 'id'=>$person->getPeri()->getPeriId())); ?>" class="label alert">Borrar</a>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <form method="post" action="<?php echo $this->url('add-person-group'); ?>">
+            <input type="hidden" name="caliId" value="<?php echo $this->group->getCaliId(); ?>">
+            <div class="row">
+                <div class="large-12 columns">
+                    Agregar Integrante
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns">
+                    <input type="text" name="pervName" value="" placeHolder="Nombre">
+                </div>
+                <div class="large-3 columns">
+                    <input type="text" name="pervLastname" value="" placeHolder="Apellido">
+                </div>
+                <div class="large-6 columns">
+                    <button type="submit" class="button tiny">Agregar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

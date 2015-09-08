@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Listado de Grupos</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <table class="list" width="100%">
+            <thead>
+                <tr>
+                    <th width="5%">Nro.</th>
+                    <th width="84%">Nombre</th>
+                    <th width="11%">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $i = 1;
+                foreach($this->groups as $group) {
+                ?>
+                <tr>
+                    <td><?php echo $i; $i++; ?></td>
+                    <td><?php echo $group->getCalvName(); ?></td>
+                    <td>
+                        <a href="<?php echo $this->url('view-group', array('id'=>$group->getCaliId())); ?>" class="label secondary">Ver</a>
+                        <a href="<?php echo $this->url('delete-group', array('id'=>$group->getCaliId())); ?>" class="label alert">Borrar</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<form method="post" action="<?php echo $this->url('create-group'); ?>">
+    <div class="row">
+        <div class="large-12 columns">
+            Crear Grupo
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-3 columns">
+            <input type="text" name="calvName" value="" placeHolder="Escriba el nombre del grupo">
+        </div>
+        <div class="large-9 columns">
+            <button type="submit" class="button tiny">Crear</button>
+        </div>
+    </div>
+</form>

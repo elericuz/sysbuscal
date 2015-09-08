@@ -68,3 +68,8 @@ a, a:hover, a:focus
 input.dijitOffScreen {
 	display: none;
 }
+
+table.list tr th, table.list tr td {
+	font-size: 0.875rem;
+	padding: 0.5rem 0.625rem 0.625rem;
+}

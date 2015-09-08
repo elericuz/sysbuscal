@@ -166,7 +166,96 @@ textarea {
 .claro .dojoxCalendarEvent.Calendar10.Selected .bg {
   background-color: #25d4e1;
 }
-
+.claro .dojoxCalendarEvent.Calendar11 .bg {
+  background-color: #00AA50;
+}
+.claro .dojoxCalendarEvent.Calendar11.Hovered .bg {
+  background-color: #00FF50;
+}
+.claro .dojoxCalendarEvent.Calendar11.Selected .bg {
+  background-color: #004450;
+}
+.claro .dojoxCalendarEvent.Calendar12 .bg {
+  background-color: #00005A;
+}
+.claro .dojoxCalendarEvent.Calendar12.Hovered .bg {
+  background-color: #00005F;
+}
+.claro .dojoxCalendarEvent.Calendar12.Selected .bg {
+  background-color: #000054;
+}
+.claro .dojoxCalendarEvent.Calendar13 .bg {
+  background-color: #eccf57;
+}
+.claro .dojoxCalendarEvent.Calendar13.Hovered .bg {
+  background-color: #eccf57;
+}
+.claro .dojoxCalendarEvent.Calendar13.Selected .bg {
+  background-color: #eccf57;
+}
+.claro .dojoxCalendarEvent.Calendar14 .bg {
+  background-color: #5f1c53;
+}
+.claro .dojoxCalendarEvent.Calendar14.Hovered .bg {
+  background-color: #5f1c53;
+}
+.claro .dojoxCalendarEvent.Calendar14.Selected .bg {
+  background-color: #5f1c53;
+}
+.claro .dojoxCalendarEvent.Calendar15 .bg {
+  background-color: #40d350;
+}
+.claro .dojoxCalendarEvent.Calendar15.Hovered .bg {
+  background-color: #40d350;
+}
+.claro .dojoxCalendarEvent.Calendar15.Selected .bg {
+  background-color: #40d350;
+}
+.claro .dojoxCalendarEvent.Calendar16 .bg {
+  background-color: #ad1e56;
+}
+.claro .dojoxCalendarEvent.Calendar16.Hovered .bg {
+  background-color: #ad1e56;
+}
+.claro .dojoxCalendarEvent.Calendar16.Selected .bg {
+  background-color: #ad1e56;
+}
+.claro .dojoxCalendarEvent.Calendar17 .bg {
+  background-color: #2c6956;
+}
+.claro .dojoxCalendarEvent.Calendar17.Hovered .bg {
+  background-color: #2c6956;
+}
+.claro .dojoxCalendarEvent.Calendar17.Selected .bg {
+  background-color: #2c6956;
+}
+.claro .dojoxCalendarEvent.Calendar18 .bg {
+  background-color: #dc5e5b;
+}
+.claro .dojoxCalendarEvent.Calendar18.Hovered .bg {
+  background-color: #dc5e5b;
+}
+.claro .dojoxCalendarEvent.Calendar18.Selected .bg {
+  background-color: #dc5e5b;
+}
+.claro .dojoxCalendarEvent.Calendar19 .bg {
+  background-color: #d3bb5a;
+}
+.claro .dojoxCalendarEvent.Calendar19.Hovered .bg {
+  background-color: #d3bb5a;
+}
+.claro .dojoxCalendarEvent.Calendar19.Selected .bg {
+  background-color: #d3bb5a;
+}
+.claro .dojoxCalendarEvent.Calendar20 .bg {
+  background-color: #25d451;
+}
+.claro .dojoxCalendarEvent.Calendar20.Hovered .bg {
+  background-color: #25d451;
+}
+.claro .dojoxCalendarEvent.Calendar20.Selected .bg {
+  background-color: #25d451;
+}
 
 
 
