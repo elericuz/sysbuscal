@@ -16,3 +16,4 @@ public/vendor
 logs/
 config/autoload/doctrine.global.php
 config/globals.php
+data/DoctrineORMModule/Proxy/
