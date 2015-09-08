@@ -5,20 +5,23 @@
 </div>
 <div class="row">
     <div class="large-12 columns">
-        <div class="row">
-            <div class="large-3 columns text-right">
-                <b>Nombre</b>
+        <form method="post" action="<?php echo $this->url('edit-group'); ?>">
+            <input type="hidden" name="caliId" value="<?php echo $this->group->getCaliId(); ?>">
+            <div class="row">
+                <div class="large-3 columns text-right">
+                    <b>Nombre</b>
+                </div>
+                <div class="large-9 columns">
+                    <input type="text" name="calvName" value="<?php echo $this->group->getCalvName(); ?>">
+                </div>
             </div>
-            <div class="large-9 columns">
-                <input type="text" name="calvName" value="<?php echo $this->group->getCalvName(); ?>">
+            <hr>
+            <div class="row">
+                <div class="large-12 columns">
+                    <button class="button radius tiny">Editar</button>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="large-12 columns">
-                <a href="<?php echo $this->url('edit-group') . "/" . $this->group->getCaliId(); ?>" class="button radius tiny">Editar</a>
-            </div>
-        </div>
+        </form>
         <div class="row">
             <div class="large-12 columns">
                 <h1>Integrantes</h1>

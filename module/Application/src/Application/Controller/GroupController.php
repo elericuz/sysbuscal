@@ -39,6 +39,24 @@ class GroupController extends MainController
         }
     }
 
+    public function editAction()
+    {
+        $request = $this->getRequest();
+        if($request->isPost())
+        {
+            $calendar_obj = $this->em->find('Application\Entity\WebsiteTbCalendar', $request->getPost('caliId'));
+            $calendar_obj->setCalvName(trim($request->getPost('calvName')));
+            $this->em->persist($calendar_obj);
+            $this->em->flush();
+
+            return $this->redirect()->toRoute('view-group', array('id'=>$calendar_obj->getCaliId()));
+        }
+        else
+        {
+            return $this->redirect()->toRoute('dashboard');
+        }
+    }
+
     public function deleteAction()
     {
         $id = $this->params()->fromRoute('id', false);
