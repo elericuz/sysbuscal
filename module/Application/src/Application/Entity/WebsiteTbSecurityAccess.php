@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityAccess
  *
  * @ORM\Table(name="website_tb_security_access", indexes={@ORM\Index(name="scex_tb_security_access_fk", columns={"seni_id"}), @ORM\Index(name="glen_tb_security_access_fk1", columns={"scri_id"}), @ORM\Index(name="module", columns={"smoi_id"})})
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityAccessRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityAccess
 {
@@ -26,7 +26,7 @@ class WebsiteTbSecurityAccess
      *
      * @ORM\Column(name="sacy_status", type="boolean", nullable=false)
      */
-    private $sacyStatus = '1';
+    private $sacyStatus;
 
     /**
      * @var integer

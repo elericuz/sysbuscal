@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbGlobalInformation
  *
  * @ORM\Table(name="website_tb_global_information")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbGlobalInformationRepository")
+ * @ORM\Entity
  */
 class WebsiteTbGlobalInformation
 {

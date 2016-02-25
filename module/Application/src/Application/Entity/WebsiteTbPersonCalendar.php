@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbPersonCalendar
  *
  * @ORM\Table(name="website_tb_person_calendar", indexes={@ORM\Index(name="has_person", columns={"peri_id"}), @ORM\Index(name="has_calendar", columns={"cali_id"})})
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbPersonCalendarRepository")
+ * @ORM\Entity
  */
 class WebsiteTbPersonCalendar
 {

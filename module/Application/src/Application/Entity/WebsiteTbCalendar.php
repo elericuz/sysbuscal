@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbCalendar
  *
  * @ORM\Table(name="website_tb_calendar")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbCalendarRepository")
+ * @ORM\Entity
  */
 class WebsiteTbCalendar
 {
@@ -26,14 +26,14 @@ class WebsiteTbCalendar
      *
      * @ORM\Column(name="calv_name", type="string", length=50, nullable=false)
      */
-    private $calvName = '';
+    private $calvName;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="cali_status", type="integer", nullable=false)
      */
-    private $caliStatus = '1';
+    private $caliStatus;
 
 
 

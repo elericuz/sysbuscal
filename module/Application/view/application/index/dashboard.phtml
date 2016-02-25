@@ -6,10 +6,10 @@
                     <input type="hidden" name="eveiId" id="eveiId" value="0" data-dojo-type="dijit/form/ValidationTextBox" />
                     <div>
                         <div>
-                            <label for="evetSummary">Nombre del Evento:</label>
+                            <label for="evetSummary">Doctor / Paciente:</label>
                             <input type="text" name="evetSummary" id="evetSummary" required="true"
                                 data-dojo-type="dijit/form/ValidationTextBox"
-                                data-dojo-props="placeHolder:'nombre del evento'" />
+                                data-dojo-props="placeHolder:'nombre del doctor / paciente'" />
                             <div>
                                 <label for="startHour">Desde:</label>
                             </div>
@@ -34,16 +34,34 @@
                             data-dojo-props="placeHolder:'hora', constraints:{timePattern: 'HH:mm'}" />
                         </div>
                         <div>
-                            <label for="evevPlace">Lugar:</label>
-                            <input type="text" name="evevPlace" id="evevPlace" required="true"
+                            <label for="evevEmail">Email:</label>
+                            <input type="text" name="evevEmail" id="evevEmail"
                                 data-dojo-type="dijit/form/ValidationTextBox"
-                                data-dojo-props="placeHolder:'¿dónde se realizará?'" />
+                                data-dojo-props="placeHolder:'email'" />
                         </div>
                         <div>
-                            <label for="caliId">Grupo:</label>
+                            <label for="evevPhone">Teléfono:</label>
+                            <input type="text" name="evevPhone" id="evevPhone"
+                                data-dojo-type="dijit/form/ValidationTextBox"
+                                data-dojo-props="placeHolder:'teléfono'" />
+                        </div>
+                        <div>
+                            <label for="evevObs">Observación:</label>
+                            <input type="text" name="evevObs" id="evevObs"
+                                data-dojo-type="dijit/form/ValidationTextBox"
+                                data-dojo-props="placeHolder:'Observación'" />
+                        </div>
+                        <div>
+                            <label for="evevPlace">Creado por:</label>
+                            <input type="text" name="evevPlace" id="evevPlace" required="true"
+                                data-dojo-type="dijit/form/ValidationTextBox"
+                                data-dojo-props="placeHolder:'creado por'" />
+                        </div>
+                        <div>
+                            <label for="caliId">Tipo de Consulta:</label>
                             <select name="caliId" id="caliId" required="false"
                                 data-dojo-type="dijit/form/FilteringSelect"
-                                data-dojo-props="placeHolder:'Seleccione un grupo'">
+                                data-dojo-props="placeHolder:'Seleccione un tipo'">
                                 <?php foreach($this->calendars as $calendar) { ?>
                                 <option value="<?php echo $calendar->getCaliId(); ?>"><?php echo $calendar->getCalvName(); ?></option>
                                 <?php } ?>

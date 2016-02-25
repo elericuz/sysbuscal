@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityModule
  *
  * @ORM\Table(name="website_tb_security_module")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityModuleRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityModule
 {
@@ -26,7 +26,7 @@ class WebsiteTbSecurityModule
      *
      * @ORM\Column(name="smoi_parent_module", type="integer", nullable=true)
      */
-    private $smoiParentModule = '0';
+    private $smoiParentModule;
 
     /**
      * @var string
@@ -54,7 +54,7 @@ class WebsiteTbSecurityModule
      *
      * @ORM\Column(name="smoy_clickable", type="boolean", nullable=false)
      */
-    private $smoyClickable = '0';
+    private $smoyClickable;
 
     /**
      * @var string
@@ -103,7 +103,7 @@ class WebsiteTbSecurityModule
      *
      * @ORM\Column(name="smoy_status", type="boolean", nullable=false)
      */
-    private $smoyStatus = '1';
+    private $smoyStatus;
 
 
 

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbPerson
  *
  * @ORM\Table(name="website_tb_person")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbPersonRepository")
+ * @ORM\Entity
  */
 class WebsiteTbPerson
 {
@@ -26,14 +26,14 @@ class WebsiteTbPerson
      *
      * @ORM\Column(name="perv_name", type="string", length=50, nullable=false)
      */
-    private $pervName = '';
+    private $pervName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="perv_lastname", type="string", length=50, nullable=false)
      */
-    private $pervLastname = '';
+    private $pervLastname;
 
 
 

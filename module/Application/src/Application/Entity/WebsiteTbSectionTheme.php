@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSectionTheme
  *
  * @ORM\Table(name="website_tb_section_theme")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSectionThemeRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSectionTheme
 {
@@ -33,7 +33,7 @@ class WebsiteTbSectionTheme
      *
      * @ORM\Column(name="sthy_status", type="boolean", nullable=false)
      */
-    private $sthyStatus = '1';
+    private $sthyStatus;
 
 
 

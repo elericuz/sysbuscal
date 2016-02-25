@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityEntity
  *
  * @ORM\Table(name="website_tb_security_entity", indexes={@ORM\Index(name="scex_tb_security_entity_fk", columns={"seti_id"})})
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityEntityRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityEntity
 {
@@ -26,7 +26,7 @@ class WebsiteTbSecurityEntity
      *
      * @ORM\Column(name="seny_status", type="boolean", nullable=false)
      */
-    private $senyStatus = '1';
+    private $senyStatus;
 
     /**
      * @var integer
@@ -40,14 +40,14 @@ class WebsiteTbSecurityEntity
      *
      * @ORM\Column(name="send_created_date", type="datetime", nullable=false)
      */
-    private $sendCreatedDate = 'CURRENT_TIMESTAMP';
+    private $sendCreatedDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="senv_created_ip", type="string", length=17, nullable=true)
      */
-    private $senvCreatedIp = '';
+    private $senvCreatedIp;
 
     /**
      * @var integer
@@ -61,14 +61,14 @@ class WebsiteTbSecurityEntity
      *
      * @ORM\Column(name="send_mod_date", type="datetime", nullable=false)
      */
-    private $sendModDate = '0000-00-00 00:00:00';
+    private $sendModDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="senv_mod_ip", type="string", length=17, nullable=true)
      */
-    private $senvModIp = '';
+    private $senvModIp;
 
     /**
      * @var \Application\Entity\WebsiteTbSecurityEntityType

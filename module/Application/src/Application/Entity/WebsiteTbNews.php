@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbNews
  *
  * @ORM\Table(name="website_tb_news")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbNewsRepository")
+ * @ORM\Entity
  */
 class WebsiteTbNews
 {
@@ -89,7 +89,7 @@ class WebsiteTbNews
      *
      * @ORM\Column(name="newy_status", type="boolean", nullable=false)
      */
-    private $newyStatus = '1';
+    private $newyStatus;
 
     /**
      * @var integer

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityUserDescription
  *
  * @ORM\Table(name="website_tb_security_user_description")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityUserDescriptionRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityUserDescription
 {

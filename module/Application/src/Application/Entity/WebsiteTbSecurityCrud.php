@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityCrud
  *
  * @ORM\Table(name="website_tb_security_crud")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityCrudRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityCrud
 {
