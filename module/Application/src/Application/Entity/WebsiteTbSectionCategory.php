@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSectionCategory
  *
  * @ORM\Table(name="website_tb_section_category")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSectionCategoryRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSectionCategory
 {
@@ -33,7 +33,7 @@ class WebsiteTbSectionCategory
      *
      * @ORM\Column(name="scai_order", type="integer", nullable=false)
      */
-    private $scaiOrder = '0';
+    private $scaiOrder;
 
 
 

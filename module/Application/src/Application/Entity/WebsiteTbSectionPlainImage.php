@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSectionPlainImage
  *
  * @ORM\Table(name="website_tb_section_plain_image", indexes={@ORM\Index(name="section_image", columns={"sepi_id"})})
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSectionPlainImageRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSectionPlainImage
 {

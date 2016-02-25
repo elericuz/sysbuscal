@@ -26,6 +26,9 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 			    			endDate: dijit.byId('endDate').get('value'),
 			    			endHour: dijit.byId('endHour').get('value'),
 				    		evevPlace: dijit.byId('evevPlace').get('value'),
+				    		evevEmail: dijit.byId('evevEmail').get('value'),
+				    		evevPhone: dijit.byId('evevPhone').get('value'),
+				    		evevObs: dijit.byId('evevObs').get('value'),
 				    		caliId: dijit.byId('caliId').get('value')
 			    		},
 			    		load: function(response){
@@ -80,11 +83,12 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 				return stamp.toISOString(d);
 			},
 			store : calStore,
-			dateInterval : "week",
+			dateInterval : "day",
 			columnViewProps : {
-				minHours : 0,
+				minHours : 7,
 				maxHours : 24,
-				timeSlotDuration : 15
+				hourSize : 250,
+				timeSlotDuration : 10
 			},
 			style : "position:relative;width:100%;height:100%;"
 		}, "mainCalendar");
@@ -109,6 +113,9 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 	    			dijit.byId('endDate').set('value', response.endDate);
 	    			dijit.byId('endHour').set('value', response.endHour);
 	    			dijit.byId('evevPlace').set('value', response.evevPlace);
+	    			dijit.byId('evevEmail').set('value', response.evevEmail);
+	    			dijit.byId('evevPhone').set('value', response.evevPhone);
+	    			dijit.byId('evevObs').set('value', response.evevObs);
 	    			dijit.byId('caliId').set('value', response.caliId);
 	    			dijit.byId('eventForm').validate();
 	    		}
@@ -168,7 +175,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
     		      calendar: dijit.byId('caliId').get('value'),
     		      start: start,
     		      end: end,
-    		      summary: "Nuevo Evento"
+    		      summary: "DR CABRERA/"
     		    },
 	    		handleAs: "json",
 	    		sync: true
@@ -182,7 +189,7 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 
 			var item = {
 				id : newId,
-				summary : "Nuevo Evento",
+				summary : "DR CABRERA/",
 				startTime : start,
 				endTime : end,
 				calendar : dijit.byId('caliId').get('value'),

@@ -55,8 +55,9 @@ class Event extends EntityRepository
     public function getEvent($id)
     {
         $dq = $this->em->createQueryBuilder();
-        $query = $dq->select(array('a'))
+        $query = $dq->select(array('a', 'b'))
                     ->from(get_class($this->class), 'a')
+                    ->leftJoin('a.cali', 'b')
                     ->where('a.eveiId = :id')
                     ->setParameter('id', $id);
         $results = $query->getQuery()->getResult(Query::HYDRATE_ARRAY);
@@ -69,6 +70,7 @@ class Event extends EntityRepository
             list($event['endDate'], $event['endHour']) = explode("T", $event['evevEndTime']);
             $event['startHour'] = "T".$event['startHour'];
             $event['endHour'] = "T".$event['endHour'];
+            $event['caliId'] = $event['cali']['caliId'];
         }
         else
         {
@@ -80,12 +82,16 @@ class Event extends EntityRepository
 
     public function saveEvent($event)
     {
+        $calendar = $this->em->find('Application\Entity\WebsiteTbCalendar', 1);
         $event_obj = $this->class;
-        $event_obj->setCaliId($event['calendar'])
+        $event_obj->setCali($calendar)
+                  ->setEveiParentId(0)
                   ->setEvevStartTime($event['start'])
                   ->setEvevEndTime($event['end'])
                   ->setEvetSummary($event['summary'])
-                  ->setEvevCalendar('Calendar'.$event['calendar']);
+                  ->setEveiAllDay(0)
+                  ->setEvevCalendar('Calendar'.$event['calendar'])
+                  ->setEveiStatus(1);
         $this->em->persist($event_obj);
         $this->em->flush();
 
@@ -105,12 +111,16 @@ class Event extends EntityRepository
 
     public function update($event)
     {
+        $calendar = $this->em->find('Application\Entity\WebsiteTbCalendar', $event['caliId']);
         $event_obj = $this->em->find(get_class($this->class), $event['eveiId']);
         $event_obj->setEvetSummary($event['evetSummary'])
                   ->setEvevStartTime($event['evevStartDate'])
                   ->setEvevEndTime($event['evevEndDate'])
                   ->setEvevPlace($event['evevPlace'])
-                  ->setCaliId($event['caliId'])
+                  ->setEvevEmail($event['evevEmail'])
+                  ->setEvevPhone($event['evevPhone'])
+                  ->setEvevObs($event['evevObs'])
+                  ->setCali($calendar)
                   ->setEvevCalendar('Calendar'.$event['caliId']);
         $this->em->persist($event_obj);
         $this->em->flush();

@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WebsiteTbEvents
  *
- * @ORM\Table(name="website_tb_events")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbEventsRepository")
+ * @ORM\Table(name="website_tb_events", indexes={@ORM\Index(name="event_has_calendar", columns={"cali_id"})})
+ * @ORM\Entity
  */
 class WebsiteTbEvents
 {
@@ -26,14 +26,7 @@ class WebsiteTbEvents
      *
      * @ORM\Column(name="evei_parent_id", type="integer", nullable=false)
      */
-    private $eveiParentId = '0';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="cali_id", type="integer", nullable=false)
-     */
-    private $caliId;
+    private $eveiParentId;
 
     /**
      * @var string
@@ -68,21 +61,52 @@ class WebsiteTbEvents
      *
      * @ORM\Column(name="evev_place", type="string", length=250, nullable=true)
      */
-    private $evevPlace = '';
+    private $evevPlace;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="evei_all_day", type="integer", nullable=false)
      */
-    private $eveiAllDay = '0';
+    private $eveiAllDay;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="evev_email", type="string", length=250, nullable=true)
+     */
+    private $evevEmail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="evev_phone", type="string", length=100, nullable=true)
+     */
+    private $evevPhone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="evev_obs", type="string", length=250, nullable=true)
+     */
+    private $evevObs;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="evei_status", type="integer", nullable=true)
      */
-    private $eveiStatus = '1';
+    private $eveiStatus;
+
+    /**
+     * @var \Application\Entity\WebsiteTbCalendar
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\WebsiteTbCalendar")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cali_id", referencedColumnName="cali_id")
+     * })
+     */
+    private $cali;
 
 
 
@@ -117,29 +141,6 @@ class WebsiteTbEvents
     public function getEveiParentId()
     {
         return $this->eveiParentId;
-    }
-
-    /**
-     * Set caliId
-     *
-     * @param integer $caliId
-     * @return WebsiteTbEvents
-     */
-    public function setCaliId($caliId)
-    {
-        $this->caliId = $caliId;
-
-        return $this;
-    }
-
-    /**
-     * Get caliId
-     *
-     * @return integer 
-     */
-    public function getCaliId()
-    {
-        return $this->caliId;
     }
 
     /**
@@ -281,6 +282,75 @@ class WebsiteTbEvents
     }
 
     /**
+     * Set evevEmail
+     *
+     * @param string $evevEmail
+     * @return WebsiteTbEvents
+     */
+    public function setEvevEmail($evevEmail)
+    {
+        $this->evevEmail = $evevEmail;
+
+        return $this;
+    }
+
+    /**
+     * Get evevEmail
+     *
+     * @return string 
+     */
+    public function getEvevEmail()
+    {
+        return $this->evevEmail;
+    }
+
+    /**
+     * Set evevPhone
+     *
+     * @param string $evevPhone
+     * @return WebsiteTbEvents
+     */
+    public function setEvevPhone($evevPhone)
+    {
+        $this->evevPhone = $evevPhone;
+
+        return $this;
+    }
+
+    /**
+     * Get evevPhone
+     *
+     * @return string 
+     */
+    public function getEvevPhone()
+    {
+        return $this->evevPhone;
+    }
+
+    /**
+     * Set evevObs
+     *
+     * @param string $evevObs
+     * @return WebsiteTbEvents
+     */
+    public function setEvevObs($evevObs)
+    {
+        $this->evevObs = $evevObs;
+
+        return $this;
+    }
+
+    /**
+     * Get evevObs
+     *
+     * @return string 
+     */
+    public function getEvevObs()
+    {
+        return $this->evevObs;
+    }
+
+    /**
      * Set eveiStatus
      *
      * @param integer $eveiStatus
@@ -301,5 +371,28 @@ class WebsiteTbEvents
     public function getEveiStatus()
     {
         return $this->eveiStatus;
+    }
+
+    /**
+     * Set cali
+     *
+     * @param \Application\Entity\WebsiteTbCalendar $cali
+     * @return WebsiteTbEvents
+     */
+    public function setCali(\Application\Entity\WebsiteTbCalendar $cali = null)
+    {
+        $this->cali = $cali;
+
+        return $this;
+    }
+
+    /**
+     * Get cali
+     *
+     * @return \Application\Entity\WebsiteTbCalendar 
+     */
+    public function getCali()
+    {
+        return $this->cali;
     }
 }

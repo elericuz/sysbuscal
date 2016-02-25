@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityEntityType
  *
  * @ORM\Table(name="website_tb_security_entity_type")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityEntityTypeRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityEntityType
 {
@@ -26,14 +26,14 @@ class WebsiteTbSecurityEntityType
      *
      * @ORM\Column(name="setv_name", type="string", length=25, nullable=true)
      */
-    private $setvName = '';
+    private $setvName;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="seti_status", type="integer", nullable=false)
      */
-    private $setiStatus = '1';
+    private $setiStatus;
 
 
 

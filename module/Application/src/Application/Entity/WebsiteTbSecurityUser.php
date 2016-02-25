@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSecurityUser
  *
  * @ORM\Table(name="website_tb_security_user", uniqueConstraints={@ORM\UniqueConstraint(name="susv_login", columns={"susv_login"})}, indexes={@ORM\Index(name="scex_tb_security_user_fk", columns={"seni_id"})})
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSecurityUserRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSecurityUser
 {
@@ -31,14 +31,14 @@ class WebsiteTbSecurityUser
      *
      * @ORM\Column(name="susv_loginname", type="string", length=150, nullable=true)
      */
-    private $susvLoginname = '';
+    private $susvLoginname;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="susy_status", type="boolean", nullable=false)
      */
-    private $susyStatus = '1';
+    private $susyStatus;
 
     /**
      * @var integer
@@ -59,7 +59,7 @@ class WebsiteTbSecurityUser
      *
      * @ORM\Column(name="susv_created_ip", type="string", length=17, nullable=true)
      */
-    private $susvCreatedIp = '';
+    private $susvCreatedIp;
 
     /**
      * @var integer
@@ -80,7 +80,7 @@ class WebsiteTbSecurityUser
      *
      * @ORM\Column(name="susv_mod_ip", type="string", length=17, nullable=true)
      */
-    private $susvModIp = '';
+    private $susvModIp;
 
     /**
      * @var \Application\Entity\WebsiteTbSecurityUserDescription

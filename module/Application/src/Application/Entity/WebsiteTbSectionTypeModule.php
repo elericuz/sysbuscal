@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WebsiteTbSectionTypeModule
  *
  * @ORM\Table(name="website_tb_section_type_module")
- * @ORM\Entity(repositoryClass="Application\Entity\Repository\WebsiteTbSectionTypeModuleRepository")
+ * @ORM\Entity
  */
 class WebsiteTbSectionTypeModule
 {
@@ -19,14 +19,14 @@ class WebsiteTbSectionTypeModule
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $styiId = '0';
+    private $styiId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="smoi_id", type="integer", nullable=false)
      */
-    private $smoiId = '0';
+    private $smoiId;
 
 
 
