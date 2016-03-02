@@ -10,7 +10,7 @@ table {
     table-layout: none !important;
 }
 
-table tr th, table tr td {
+#mainCalendar table tr th, #mainCalendar table tr td {
 	font-size: 12px;
 	padding: 0;
 }
@@ -24,7 +24,7 @@ ul, ol, dl {
 	line-height: inherit;
 }
 
-table tr.even, table tr.alt, table tr:nth-of-type(2n) {
+#mainCalendar table tr.even, #mainCalendar table tr.alt, #mainCalendar #mainCalendar table tr:nth-of-type(2n) {
 	background: inherit;
 }
 
