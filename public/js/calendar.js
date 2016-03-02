@@ -200,3 +200,14 @@ require(["dojo/parser", "dojo/ready", "dojo/dom", "dojox/calendar/Calendar",
 		calendar.set("createItemFunc", createItem);
 	})
 });
+
+
+function showCalendar()
+{
+	require(["dojo/dom", "dojo/dom-style"], function(dom, domStyle) {
+		searchResults = dom.byId('searchResults');
+		calendar = dom.byId('mainCalendar');
+		domStyle.set(searchResults, 'display', 'none');
+		domStyle.set(calendar, 'display', 'block');
+	});
+}

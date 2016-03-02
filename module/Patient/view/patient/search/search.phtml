@@ -1,0 +1,42 @@
+<div>
+    <h2>Resultados de la búsqueda</h2>
+</div>
+<hr>
+<div>
+    <table class="stack" width="100%">
+        <thead>
+            <tr>
+                <th>Paciente</th>
+                <th>Doctor</th>
+                <th>Fecha</th>
+                <th>Hora Inicio</th>
+                <th>Hora Fin</th>
+                <th>Motivo de la cita</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (!empty($this->results)) :
+                foreach ($this->results as $result) : ?>
+            <tr>
+                <?php
+                list($doctor, $paciente) = explode('/', $result['evetSummary']);
+                ?>
+                <td><?php echo strtoupper($paciente); ?></td>
+                <td><?php echo strtoupper($doctor); ?></td>
+                <td class="text-center"><?php echo date("d/m/Y", strtotime($result['evevStartTime'])); ?></td>
+                <td class="text-center"><?php echo date("H:i", strtotime($result['evevStartTime'])); ?></td>
+                <td class="text-center"><?php echo date("H:i", strtotime($result['evevEndTime'])); ?></td>
+                <td><?php echo strtoupper($result['cali']['calvName']); ?></td>
+            </tr>
+            <?php
+                endforeach;
+            else :
+            ?>
+            <tr>
+                <td>No se han encontrado coincidencias</td>
+            </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
